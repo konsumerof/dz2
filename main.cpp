@@ -78,14 +78,14 @@ std::string slurp(std::ifstream &in) {
 
 int main() {
     std::string mode;
-    std::string path_file;
+    std::string filename;
     std::cout << "E for encryption or D for decryption:" << std::endl;
     std::cin >> mode;
-    std::cout << "Enter the filename:";
-    std::cin >> path_file;
+    std::cout << "Enter the filename:" << std::endl;
+    std::cin >> filename;
     std::ofstream file;
     if (mode == "E") {
-        file.open(path_file, std::ios::binary);
+        file.open(filename, std::ios::binary);
         std::cout << "Enter the key:" << std::endl;
         int key;
         std::cin >> key;
@@ -99,7 +99,7 @@ int main() {
         }
         file.close();
     } else if (mode == "D") {
-        std::ifstream file(path_file, std::ios::binary);
+        std::ifstream file(filename, std::ios::binary);
         if (!file) {
             std::cout << "Enter the filename" << std::endl;
             file.close();
